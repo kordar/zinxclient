@@ -110,6 +110,7 @@ func (hashRingMgr *ClientManagerForHashRing) Send(id string, msgId uint32, data 
 	send, err := clientManager.Send(msgId, data)
 	if err != nil {
 		hashRingMgr.CloseNode(id)
+		return nil, err
 	}
 	return send, nil
 }
